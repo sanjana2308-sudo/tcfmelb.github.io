@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://ahrwrjxlsaprqbbtjvzk.supabase.co; connect-src https://ahrwrjxlsaprqbbtjvzk.supabase.co wss://ahrwrjxlsaprqbbtjvzk.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Editor admin | Tamil Christian Fellowship, Melbourne</title>
+  <meta name="theme-color" content="#12263A">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/logo-192.png">
+  <link rel="preconnect" href="https://ahrwrjxlsaprqbbtjvzk.supabase.co" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <!-- Supabase JS client, pinned to 2.118.0 (released 15 Oct 2026) with a Subresource Integrity hash -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous" defer></script>
+  <script src="/main.js" data-shared defer></script><!-- the shared Title Case rule only -->
+  <script src="/admin/admin.js" defer></script>
+</head>
+
+<body class="adm">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="adm-header">
+    <div class="adm-wrap adm-header__in">
+      <p class="adm-brand">
+        <img src="/images/logo-112.png" alt="" width="40" height="40">
+        <span>Tamil Christian Fellowship <small>Editor admin</small></span>
+      </p>
+      <div class="adm-user" id="adm-user" hidden>
+        <span class="adm-user__email" id="adm-user-email"></span>
+        <button type="button" class="btn btn--ghost btn--sm" id="adm-signout">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="adm-wrap adm-main">
+    <p class="adm-flash" id="adm-flash" role="alert" hidden></p>
+
+    <!-- Shown until the login check finishes -->
+    <p class="adm-loading" id="adm-loading">Checking your login…</p>
+
+    <!-- ============ LOGIN ============ -->
+    <section class="adm-auth" id="view-login" aria-labelledby="login-title" hidden>
+      <h1 id="login-title">Log in</h1>
+      <p class="adm-lede">For church editors only. Log in to update events, service times and photos.</p>
+      <form id="login-form" class="adm-card adm-form" novalidate>
+        <div class="fld">
+          <label for="login-email">Email</label>
+          <input id="login-email" name="email" type="email" autocomplete="username" inputmode="email" required>
+        </div>
+        <div class="fld">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <p class="form-error" id="login-error" hidden></p>
+        <div class="adm-actions">
+          <button type="submit" class="btn btn--navy">Log in</button>
+          <button type="button" class="adm-link" id="show-forgot">Forgot password?</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ FORGOT PASSWORD ============ -->
+    <section class="adm-auth" id="view-forgot" aria-labelledby="forgot-title" hidden>
+      <h1 id="forgot-title">Reset your password</h1>
+      <p class="adm-lede">Enter your editor email address. We'll email you a link to choose a new password.</p>
+      <form id="forgot-form" class="adm-card adm-form" novalidate>
+        <div class="fld">
+          <label for="forgot-email">Email</label>
+          <input id="forgot-email" name="email" type="email" autocomplete="username" inputmode="email" required>
+        </div>
+        <p class="form-error" id="forgot-error" hidden></p>
+        <p class="form-ok" id="forgot-ok" hidden></p>
+        <div class="adm-actions">
+          <button type="submit" class="btn btn--navy">Send reset link</button>
+          <button type="button" class="adm-link" id="show-login">Back to login</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ CHOOSE A NEW PASSWORD (after following the email link) ============ -->
+    <section class="adm-auth" id="view-newpass" aria-labelledby="newpass-title" hidden>
+      <h1 id="newpass-title">Choose a new password</h1>
+      <p class="adm-lede">Use at least 10 characters. A short sentence is easy to remember and hard to guess.</p>
+      <form id="newpass-form" class="adm-card adm-form" novalidate>
+        <div class="fld">
+          <label for="newpass-1">New password</label>
+          <input id="newpass-1" type="password" autocomplete="new-password" minlength="10" required>
+        </div>
+        <div class="fld">
+          <label for="newpass-2">Type it again</label>
+          <input id="newpass-2" type="password" autocomplete="new-password" minlength="10" required>
+        </div>
+        <p class="form-error" id="newpass-error" hidden></p>
+        <div class="adm-actions">
+          <button type="submit" class="btn btn--navy">Save new password</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- The editor tools are only created from the template below after a successful login -->
+    <div id="app-root"></div>
+  </main>
+
+  <div class="adm-toast" id="adm-toast" role="status" aria-live="polite"></div>
+
+  <dialog class="adm-dialog" id="adm-confirm" aria-labelledby="confirm-title">
+    <h2 id="confirm-title"></h2>
+    <div class="adm-dialog__body" id="confirm-body"></div>
+    <div class="adm-actions">
+      <button type="button" class="btn btn--navy" id="confirm-ok">Confirm</button>
+      <button type="button" class="btn btn--outline" id="confirm-cancel">Go back</button>
+    </div>
+  </dialog>
+
+  <template id="app-tpl">
+    <h1 class="visually-hidden">Editor admin</h1>
+    <div class="adm-tabs" role="tablist" aria-label="What do you want to edit?">
+      <button type="button" role="tab" id="tab-events" aria-controls="panel-events" aria-selected="true">Events</button>
+      <button type="button" role="tab" id="tab-times" aria-controls="panel-times" aria-selected="false" tabindex="-1">Service times</button>
+      <button type="button" role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="false" tabindex="-1">Gallery</button>
+    </div>
+
+    <!-- ============ EVENTS ============ -->
+    <section class="adm-panel" role="tabpanel" id="panel-events" aria-labelledby="tab-events" tabindex="0">
+      <div class="adm-bar">
+        <h2>Events</h2>
+        <button type="button" class="btn btn--gold" id="ev-add">Add event</button>
+      </div>
+      <p class="adm-hint">Events show on the Events page, the home page and the campus pages straight away. Cancellations and service changes in the next 7 days also appear in the “This week” notice.</p>
+
+      <form class="adm-card adm-form" id="ev-form" novalidate hidden aria-labelledby="ev-form-title">
+        <h3 id="ev-form-title">Add an event</h3>
+        <div class="adm-grid">
+          <div class="fld">
+            <label for="ev-title">Title</label>
+            <input id="ev-title" maxlength="120" required aria-describedby="ev-title-hint">
+            <p class="hint" id="ev-title-hint">For example “Sunday Service”, “Prayer Meeting” or “Youth Meeting”. Saved in Title Case.</p>
+          </div>
+          <div class="fld">
+            <label for="ev-status">Status</label>
+            <select id="ev-status" aria-describedby="ev-status-hint">
+              <option value="normal" selected>Normal</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+            <p class="hint" id="ev-status-hint">A cancelled Sunday service replaces that campus’s regular service for the day. You don’t need to change or delete the regular one.</p>
+          </div>
+          <div class="fld" id="ev-type-wrap">
+            <label for="ev-type">Type</label>
+            <select id="ev-type" aria-describedby="ev-type-hint">
+              <option>Sunday service</option>
+              <option>Prayer</option>
+              <option selected>Meeting</option>
+              <option>Service change</option>
+              <option>Special event</option>
+            </select>
+            <p class="hint" id="ev-type-hint">Use Service change only when the time or place changes. For a guest speaker, use Sunday service and write ‘with Ps Name (Guest Speaker, Country)’ in the note.</p>
+          </div>
+          <div class="fld" id="ev-combined-wrap" hidden>
+            <label for="ev-combined">Combined with another campus <span class="adm-optional">(optional)</span></label>
+            <select id="ev-combined" aria-describedby="ev-combined-hint"></select>
+            <p class="hint" id="ev-combined-hint">If everyone joins another campus that day, choose it. The website shows “Combined with Tarneit, 4:30pm” using that campus’s Sunday time.</p>
+          </div>
+          <div class="fld">
+            <label for="ev-date">Date</label>
+            <input id="ev-date" type="date" required>
+          </div>
+          <div class="fld" id="ev-time-wrap">
+            <label for="ev-time">Time</label>
+            <input id="ev-time" maxlength="40" aria-describedby="ev-time-hint">
+            <p class="hint" id="ev-time-hint">Write it as it should appear, e.g. 9:30am, 4pm or from 4pm to 6pm.</p>
+          </div>
+          <div class="fld" id="ev-end-wrap">
+            <label for="ev-time-end">End time <span class="adm-optional">(optional)</span></label>
+            <input id="ev-time-end" maxlength="15" aria-describedby="ev-time-end-hint">
+            <p class="hint" id="ev-time-end-hint">e.g. 6pm. Shown as “4pm to 6pm”.</p>
+          </div>
+          <fieldset class="fld fld--wide">
+            <legend>Campus</legend>
+            <div class="checks" id="ev-campuses"></div>
+          </fieldset>
+          <fieldset class="fld fld--wide adm-location" id="ev-location">
+            <legend>Location <span class="adm-optional">(optional)</span></legend>
+            <p class="hint" id="ev-loc-hint">For a place that isn’t one of our campuses, e.g. a special event at another church. Needed when “Not at a campus” is ticked.</p>
+            <div class="adm-grid">
+              <div class="fld">
+                <label for="ev-loc-name">Venue name</label>
+                <input id="ev-loc-name" maxlength="120" autocomplete="off" aria-describedby="ev-loc-hint">
+              </div>
+              <div class="fld">
+                <label for="ev-loc-address">Address</label>
+                <input id="ev-loc-address" maxlength="200" autocomplete="off" aria-describedby="ev-loc-address-hint">
+                <p class="hint" id="ev-loc-address-hint">e.g. 12 Main St, Keilor East VIC 3033. Used for the “Get directions” link.</p>
+              </div>
+              <div class="fld fld--wide">
+                <label for="ev-loc-url">Map or info link <span class="adm-optional">(optional)</span></label>
+                <input id="ev-loc-url" type="url" maxlength="500" inputmode="url" autocomplete="off" aria-describedby="ev-loc-url-hint">
+                <p class="hint" id="ev-loc-url-hint">Must start with https://. Leave empty to link to Google Maps for the address.</p>
+              </div>
+            </div>
+          </fieldset>
+          <div class="fld fld--wide">
+            <label for="ev-note">Note (optional)</label>
+            <textarea id="ev-note" rows="2" maxlength="500" aria-describedby="ev-note-hint"></textarea>
+            <p class="hint" id="ev-note-hint">A short line under the event. Start with “with” to show it as a speaker line, e.g. “with Ps Pitchaiah (Guest Speaker – India)”.</p>
+          </div>
+        </div>
+        <div class="adm-preview">
+          <h4>Preview on the website</h4>
+          <div id="ev-preview"></div>
+        </div>
+        <p class="form-error" id="ev-error" hidden></p>
+        <div class="adm-actions">
+          <button type="submit" class="btn btn--navy" id="ev-save">Save event</button>
+          <button type="button" class="btn btn--outline" id="ev-cancel">Cancel</button>
+        </div>
+      </form>
+
+      <h3 class="adm-sub">Upcoming</h3>
+      <ul class="adm-list" id="ev-upcoming"></ul>
+
+      <details class="adm-more">
+        <summary>Past events <span id="ev-past-count"></span></summary>
+        <ul class="adm-list" id="ev-past"></ul>
+      </details>
+
+      <details class="adm-more">
+        <summary>Recently deleted <span id="ev-del-count"></span></summary>
+        <p class="adm-hint">Deleted events are hidden from the website but kept here, so you can put them back.</p>
+        <ul class="adm-list" id="ev-deleted"></ul>
+      </details>
+    </section>
+
+    <!-- ============ SERVICE TIMES ============ -->
+    <section class="adm-panel" role="tabpanel" id="panel-times" aria-labelledby="tab-times" tabindex="0" hidden>
+      <div class="adm-bar"><h2>Service times</h2></div>
+      <p class="adm-note"><strong>Reminder:</strong> For a one-off change on a single Sunday, add a Service change or Cancellation event instead of editing the regular time.</p>
+      <div class="adm-campuses" id="cp-list"></div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="adm-panel" role="tabpanel" id="panel-gallery" aria-labelledby="tab-gallery" tabindex="0" hidden>
+      <div class="adm-bar"><h2>Gallery</h2></div>
+      <p class="adm-note"><strong>Reminder:</strong> Only upload photos of people who agreed to appear on the website, with extra care for children.</p>
+
+      <form class="adm-card adm-form" id="gl-form" novalidate>
+        <h3>Add photos</h3>
+        <div class="fld">
+          <label for="gl-files">Choose photos (JPEG, PNG or WebP)</label>
+          <input id="gl-files" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="gl-files-hint">
+          <p class="hint" id="gl-files-hint">You can pick several at once. Photos are resized to 1600 pixels wide and made smaller than 500 KB before uploading.</p>
+        </div>
+        <ul class="gl-stage" id="gl-stage"></ul>
+        <p class="form-error" id="gl-error" hidden></p>
+        <div class="adm-actions" id="gl-actions" hidden>
+          <button type="submit" class="btn btn--navy" id="gl-upload">Upload photos</button>
+          <button type="button" class="btn btn--outline" id="gl-clear">Clear</button>
+        </div>
+      </form>
+
+      <h3 class="adm-sub">On the website <span id="gl-count"></span></h3>
+      <p class="adm-hint">Photos appear in this order. Use “Move up” and “Move down” to change it.</p>
+      <ul class="gl-grid" id="gl-list"></ul>
+
+      <details class="adm-more">
+        <summary>Recently deleted <span id="gl-del-count"></span></summary>
+        <p class="adm-hint">Deleted photos are hidden from the website. Restore puts a photo back. If someone asks for their photo to be removed completely, use “Delete forever”.</p>
+        <ul class="gl-grid" id="gl-deleted"></ul>
+      </details>
+    </section>
+  </template>
+</body>
+
+</html>

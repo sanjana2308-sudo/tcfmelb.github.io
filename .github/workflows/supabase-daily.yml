@@ -1,0 +1,79 @@
+# Every morning: read events, campuses and gallery details from Supabase (which keeps the free
+# project awake), back them up into data/, check the website and Supabase, and email a summary
+# with yesterday's visitor numbers. See README.md, "Daily backup and email".
+name: Supabase daily
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 21:00 UTC = 7am (AEST) or 8am (AEDT) in Melbourne
+  workflow_dispatch:        # "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: supabase-daily
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Scheduled runs always use the default branch; this makes manual runs use it too.
+          ref: ${{ github.event.repository.default_branch || github.ref }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+
+      - name: Install the email library
+        # Installed outside the repository so it can never be committed. Exact version, no install scripts.
+        run: npm install --prefix "$RUNNER_TEMP/mail" --no-save --no-audit --no-fund --ignore-scripts nodemailer@10.3.1
+
+      - name: Read Supabase and write the backup
+        id: export
+        continue-on-error: true   # the email step still runs and sends the alert, then fails the job
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          REPORT_FILE: ${{ runner.temp }}/report.json
+        run: node scripts/export-events.js
+
+      - name: Commit the backup if it changed
+        if: steps.export.outcome == 'success'
+        run: |
+          if git diff --quiet -- data/events.json data/campuses.json data/gallery.json && \
+             [ -z "$(git ls-files --others --exclude-standard -- data/events.json data/campuses.json data/gallery.json)" ]; then
+            echo "Backup unchanged, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/events.json data/campuses.json data/gallery.json
+          git commit -m "Update events backup [skip ci]"
+          branch="$(git rev-parse --abbrev-ref HEAD)"
+          git pull --rebase --quiet origin "$branch"   # in case someone pushed during the run
+          git push origin "HEAD:$branch"
+
+      - name: Check the site, then email the summary (fails the job after sending if there is a problem)
+        if: always()
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+          SITE_URL: ${{ vars.SITE_URL }}               # optional; default https://tcfmelbourne.org
+          GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          REPORT_FILE: ${{ runner.temp }}/report.json
+          NODE_PATH: ${{ runner.temp }}/mail/node_modules
+          NOTIFY_EMAIL: ${{ vars.NOTIFY_EMAIL }}
+          SMTP_FROM: ${{ vars.SMTP_FROM }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: node scripts/daily-summary.js
