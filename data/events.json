@@ -37,7 +37,7 @@
   },
   {
     "id": "0a48b9ee-3784-4930-8a05-30ca003a71e0",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-08",
     "time": "10am",
@@ -51,11 +51,11 @@
     "location_url": null,
     "description": "with Ps Jenistan (Guest Speaker – France)",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "cb5d8d07-4334-461d-8fac-f1ff2ae53c98",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-08",
     "time": "4:30pm",
@@ -69,11 +69,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "7eebeb26-8fc6-42e9-8c5f-451041d0f9f4",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-08",
     "time": "4pm",
@@ -87,11 +87,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "6fe7b3cc-c271-4aef-97e9-4efe1aff747e",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-08",
     "time": "5pm",
@@ -105,11 +105,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "6b3fdf98-ffbb-4760-93cf-3e3ad9d1e540",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-08",
     "time": "9:30am",
@@ -123,11 +123,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "639943cf-faca-4c2b-8708-2038710174c3",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-15",
     "time": "10am",
@@ -141,11 +141,11 @@
     "location_url": null,
     "description": "with Evg. Stephen (Guest Speaker – India)",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "8cd329d7-27f8-42bd-8451-4b5ae4f5ffaf",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Cancellation",
     "date": "2026-11-15",
     "time": "4:30pm",
@@ -159,11 +159,11 @@
     "location_url": null,
     "description": "",
     "cancelled": true,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "255ae2b3-2309-49a1-a7ee-f1398b1d1540",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-15",
     "time": "4pm",
@@ -177,11 +177,11 @@
     "location_url": null,
     "description": "with Evg. Stephen (Guest Speaker – India)",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "f8aa6d27-a016-4284-98be-051b4e48f6fe",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-15",
     "time": "5pm",
@@ -195,11 +195,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "b8570a90-12c8-49fa-8e64-820651a911d4",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Cancellation",
     "date": "2026-11-15",
     "time": "9:30am",
@@ -213,7 +213,7 @@
     "location_url": null,
     "description": "",
     "cancelled": true,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "82a391aa-477f-4730-ad1e-97fdea334a41",
@@ -235,7 +235,7 @@
   },
   {
     "id": "60d2cffb-79ea-4175-82cb-d011e1dc25e3",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-22",
     "time": "10am",
@@ -249,11 +249,11 @@
     "location_url": null,
     "description": "with Ps Pitchaiah (Guest Speaker – India)",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
-    "id": "8ffae27d-104e-4be2-bcfd-a2af4e938b5e",
-    "title": "Sunday service",
+    "id": "f93238af-09e2-4535-aa3d-3c2ccd90057a",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-22",
     "time": "4:30pm",
@@ -267,11 +267,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:58:12.722317+00:00"
   },
   {
     "id": "d9f1cec1-94a7-437c-a37c-05d5d0fa4772",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-22",
     "time": "4pm",
@@ -285,11 +285,11 @@
     "location_url": null,
     "description": "with Ps Pitchaiah (Guest Speaker – India)",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "55e1c972-12ea-4162-a2dd-41508f282f5b",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-22",
     "time": "5pm",
@@ -303,11 +303,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "12492396-e816-43f9-9a15-a4369e3b9a6f",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-22",
     "time": "9:30am",
@@ -321,11 +321,11 @@
     "location_url": null,
     "description": "",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "bc44c156-732b-4db1-b10f-d6faad349e66",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-29",
     "time": "10am",
@@ -339,11 +339,11 @@
     "location_url": null,
     "description": "Conducted by Youth / Sunday School Seniors",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "a5f23100-970f-49a8-936b-9e9ae97c7b33",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-29",
     "time": "4:30pm",
@@ -357,11 +357,11 @@
     "location_url": null,
     "description": "Conducted by Youth / Sunday School Seniors",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "09e010eb-bd08-4e77-bf40-6022290813ec",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-29",
     "time": "4pm",
@@ -375,11 +375,11 @@
     "location_url": null,
     "description": "Conducted by Youth / Sunday School Seniors",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "dfec2497-fb9e-4524-8a9c-f6a27447dc8a",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-29",
     "time": "5pm",
@@ -393,11 +393,11 @@
     "location_url": null,
     "description": "Conducted by Youth / Sunday School Seniors",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   },
   {
     "id": "738a2618-1a35-49a7-bea3-75468c1d7f01",
-    "title": "Sunday service",
+    "title": "Sunday Service",
     "type": "Sunday service",
     "date": "2026-11-29",
     "time": "9:30am",
@@ -411,6 +411,6 @@
     "location_url": null,
     "description": "Conducted by Youth / Sunday School Seniors",
     "cancelled": false,
-    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+    "updated_at": "2026-11-18T12:35:30.179025+00:00"
   }
 ]
