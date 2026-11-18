@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "melton",
+    "name": "Melton",
+    "sunday_time": "9:30am",
+    "venue": "Melton Seniors Community and Learning Centre",
+    "address": "1 McKenzie St, Melton VIC 3337",
+    "transport_note": "~10mins by bus from Melton Station",
+    "language": "Tamil · English interpretation",
+    "map_url": "https://goo.gl/maps/uk894wFGkuztXfcp6",
+    "sort": 1,
+    "updated_at": "2026-11-18T03:00:40.17117+00:00"
+  },
+  {
+    "slug": "mernda",
+    "name": "Mernda",
+    "sunday_time": "10am",
+    "venue": "Mernda Central College (Community Hub)",
+    "address": "70 Breadalbane Ave, Mernda VIC 3754",
+    "transport_note": "~3mins by bus from Mernda Station",
+    "language": "Tamil · English interpretation",
+    "map_url": "https://maps.app.goo.gl/EyPxqa8zUrCBKGkk6",
+    "sort": 2,
+    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+  },
+  {
+    "slug": "sunshine",
+    "name": "Sunshine",
+    "sunday_time": "4pm",
+    "venue": "Sunshine Uniting Church",
+    "address": "32 Withers St, Sunshine VIC 3020",
+    "transport_note": "~200 metres from Sunshine Railway Station",
+    "language": "Tamil · English interpretation",
+    "map_url": "https://goo.gl/maps/8un4HzaqzprCLfLQ8",
+    "sort": 3,
+    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+  },
+  {
+    "slug": "tarneit",
+    "name": "Tarneit",
+    "sunday_time": "4:30pm",
+    "venue": "Tarneit Community Learning Centre",
+    "address": "150 Sunset Views Blvd, Tarneit VIC 3029",
+    "transport_note": "~5min walk from Tarneit Station",
+    "language": "Bilingual · English & Tamil",
+    "map_url": "https://maps.app.goo.gl/EoxARXwt6qY5FwAV8",
+    "sort": 4,
+    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+  },
+  {
+    "slug": "noble-park",
+    "name": "Noble Park",
+    "sunday_time": "5pm",
+    "venue": "Ukrainian Community Centre",
+    "address": "26 Chandler Rd, Noble Park VIC 3174",
+    "transport_note": "~10min by bus from Noble Park Station",
+    "language": "Bilingual · English & Tamil",
+    "map_url": "https://maps.app.goo.gl/ozATNoLdJJk1gKda7",
+    "sort": 5,
+    "updated_at": "2026-11-18T02:53:42.552293+00:00"
+  }
+]
